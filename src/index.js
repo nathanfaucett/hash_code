@@ -2,8 +2,10 @@ var WeakMapPolyfill = require("weak_map_polyfill"),
     isNumber = require("is_number"),
     isString = require("is_string"),
     isFunction = require("is_function"),
+    isBoolean = require("is_boolean"),
     isNullOrUndefined = require("is_null_or_undefined"),
     numberHashCode = require("number-hash_code"),
+    booleanHashCode = require("boolean-hash_code"),
     stringHashCode = require("string-hash_code");
 
 
@@ -15,18 +17,18 @@ module.exports = hashCode;
 
 
 function hashCode(value) {
-    if (value === false || isNullOrUndefined(value)) {
+    if (isNullOrUndefined(value)) {
         return 0;
     } else {
         if (isFunction(value.valueOf)) {
             value = value.valueOf();
-            if (value === false || isNullOrUndefined(value)) {
+            if (isNullOrUndefined(value)) {
                 return 0;
             }
         }
 
-        if (value === true) {
-            return 1;
+        if (isBoolean(value)) {
+            return booleanHashCode(value);
         } else if (isNumber(value)) {
             return numberHashCode(value);
         } else if (isString(value)) {
@@ -54,7 +56,7 @@ function getHashCode(value) {
 }
 
 function setHashCode(value) {
-    var hashCode = ++HASH_UID;
+    var hashCode = HASH_UID++;
 
     if (HASH_UID & 0x40000000) {
         HASH_UID = 0;
