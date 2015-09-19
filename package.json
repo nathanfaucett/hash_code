@@ -29,12 +29,13 @@
     "zuul": "^3.3.0"
   },
   "dependencies": {
-    "number-hash_code": "git://github.com/nathanfaucett/number-hash_code.git",
-    "string-hash_code": "git://github.com/nathanfaucett/string-hash_code.git",
-    "is_number": "git://github.com/nathanfaucett/is_number.git",
-    "is_string": "git://github.com/nathanfaucett/is_string.git",
+    "is_boolean": "git://github.com/nathanfaucett/is_boolean.git",
     "is_function": "git://github.com/nathanfaucett/is_function.git",
     "is_null_or_undefined": "git://github.com/nathanfaucett/is_null_or_undefined.git",
+    "is_number": "git://github.com/nathanfaucett/is_number.git",
+    "is_string": "git://github.com/nathanfaucett/is_string.git",
+    "number-hash_code": "git://github.com/nathanfaucett/number-hash_code.git",
+    "string-hash_code": "git://github.com/nathanfaucett/string-hash_code.git",
     "weak_map_polyfill": "git://github.com/nathanfaucett/weak_map_polyfill.git"
   }
 }
