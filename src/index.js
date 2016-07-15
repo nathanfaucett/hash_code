@@ -1,12 +1,12 @@
-var WeakMapPolyfill = require("weak_map_polyfill"),
-    isNumber = require("is_number"),
-    isString = require("is_string"),
-    isFunction = require("is_function"),
-    isBoolean = require("is_boolean"),
-    isNullOrUndefined = require("is_null_or_undefined"),
-    numberHashCode = require("number-hash_code"),
-    booleanHashCode = require("boolean-hash_code"),
-    stringHashCode = require("string-hash_code");
+var WeakMapPolyfill = require("@nathanfaucett/weak_map_polyfill"),
+    isNumber = require("@nathanfaucett/is_number"),
+    isString = require("@nathanfaucett/is_string"),
+    isFunction = require("@nathanfaucett/is_function"),
+    isBoolean = require("@nathanfaucett/is_boolean"),
+    isNullOrUndefined = require("@nathanfaucett/is_null_or_undefined"),
+    numberHashCode = require("@nathanfaucett/number-hash_code"),
+    booleanHashCode = require("@nathanfaucett/boolean-hash_code"),
+    stringHashCode = require("@nathanfaucett/string-hash_code");
 
 
 var WEAK_MAP = new WeakMapPolyfill(),
