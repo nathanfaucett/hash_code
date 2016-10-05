@@ -1,6 +1,6 @@
 {
   "name": "@nathanfaucett/hash_code",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "returns value hash code",
   "repository": {
     "type": "git",
@@ -37,6 +37,6 @@
     "@nathanfaucett/is_string": "^0.0.1",
     "@nathanfaucett/number-hash_code": "^0.0.1",
     "@nathanfaucett/string-hash_code": "^0.0.1",
-    "@nathanfaucett/weak_map_polyfill": "^0.0.1"
+    "@nathanfaucett/weak_map_polyfill": "^0.0.2"
   }
 }
