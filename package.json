@@ -1,6 +1,6 @@
 {
   "name": "@nathanfaucett/hash_code",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "returns value hash code",
   "repository": {
     "type": "git",
@@ -8,6 +8,7 @@
   },
   "main": "src/index.js",
   "scripts": {
+    "bench": "node bench",
     "test": "npm run test-node",
     "test-node": "node ./test | ./node_modules/.bin/tap-spec",
     "test-node-raw": "node ./test",
@@ -21,6 +22,8 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
+    "benchmark": "^2.1.4",
+    "immutable": "^4.0.0-rc",
     "grunt": "^1.0.1",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-jsbeautifier": "",
@@ -29,14 +32,12 @@
     "zuul": "^3.3.0"
   },
   "dependencies": {
-    "@nathanfaucett/boolean-hash_code": "^0.0.1",
-    "@nathanfaucett/is_boolean": "^0.0.1",
     "@nathanfaucett/is_function": "^0.0.1",
-    "@nathanfaucett/is_null_or_undefined": "^0.0.1",
     "@nathanfaucett/is_number": "^0.0.1",
+    "@nathanfaucett/is_object": "^0.0.1",
     "@nathanfaucett/is_string": "^0.0.1",
-    "@nathanfaucett/number-hash_code": "^0.0.1",
-    "@nathanfaucett/string-hash_code": "^0.0.1",
+    "@nathanfaucett/number-hash_code": "^0.0.2",
+    "@nathanfaucett/string-hash_code": "^0.0.2",
     "@nathanfaucett/weak_map_polyfill": "^0.0.2"
   }
 }

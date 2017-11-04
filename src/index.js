@@ -1,11 +1,9 @@
 var WeakMapPolyfill = require("@nathanfaucett/weak_map_polyfill"),
     isNumber = require("@nathanfaucett/is_number"),
     isString = require("@nathanfaucett/is_string"),
+    isObject = require("@nathanfaucett/is_object"),
     isFunction = require("@nathanfaucett/is_function"),
-    isBoolean = require("@nathanfaucett/is_boolean"),
-    isNullOrUndefined = require("@nathanfaucett/is_null_or_undefined"),
     numberHashCode = require("@nathanfaucett/number-hash_code"),
-    booleanHashCode = require("@nathanfaucett/boolean-hash_code"),
     stringHashCode = require("@nathanfaucett/string-hash_code");
 
 
@@ -17,26 +15,31 @@ module.exports = hashCode;
 
 
 function hashCode(value) {
-    if (isNullOrUndefined(value)) {
+    if (value === false || value === null || value === undefined) {
         return 0;
     } else {
         if (isFunction(value.valueOf)) {
             value = value.valueOf();
-            if (isNullOrUndefined(value)) {
+
+            if (value === false || value === null || value === undefined) {
                 return 0;
             }
         }
 
-        if (isBoolean(value)) {
-            return booleanHashCode(value);
+        if (value === true) {
+            return 1;
         } else if (isNumber(value)) {
             return numberHashCode(value);
         } else if (isString(value)) {
             return stringHashCode(value);
         } else if (isFunction(value.hashCode)) {
             return value.hashCode();
-        } else {
+        } else if (isObject(value)) {
             return getObjectHashCode(value);
+        } else if (isFunction(value.toString)) {
+            return stringHashCode(value.toString());
+        } else {
+            throw new Error("Value " + value + " cannot be hashed.");
         }
     }
 }
@@ -44,10 +47,10 @@ function hashCode(value) {
 function getObjectHashCode(value) {
     var hashCode = getHashCode(value);
 
-    if (hashCode !== undefined) {
-        return hashCode;
-    } else {
+    if (hashCode === undefined) {
         return setHashCode(value);
+    } else {
+        return hashCode;
     }
 }
 
